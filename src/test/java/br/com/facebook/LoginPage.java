@@ -1,5 +1,7 @@
 package br.com.facebook;
 
+import static org.junit.Assert.assertTrue;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,8 +18,8 @@ public class LoginPage extends BasePage {
 	
 	public LoginPage digitarUsuario(String username) {
 	    driver.findElement(By.id("email")).sendKeys("testefacecia@gmail.com");
-		
-		return this;
+	   
+	    return this;  
 		}
 	
 	
