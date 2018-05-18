@@ -13,8 +13,7 @@ public class FacebookPage extends BasePage{
 	
 
 	public FacebookPage clicarLogar() {
-		WebElement Btnloga = driver.findElement(By.id("loginbutton"));
-		Btnloga.click();
+	    driver.findElement(By.id("loginbutton")).click();
 
 		return this;
 }

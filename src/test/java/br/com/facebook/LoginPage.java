@@ -14,36 +14,27 @@ public class LoginPage extends BasePage {
 	}
 	
 	
-	public FacebookPage digitarUsuario() {
-		WebElement username = driver.findElement(By.id("email"));
-		username.sendKeys("testefacecia@gmail.com");
+	public LoginPage digitarUsuario(String username) {
+	    driver.findElement(By.id("email")).sendKeys("testefacecia@gmail.com");
 		
-		return new FacebookPage(driver);
+		return this;
 		}
 	
 	
 	
-	public FacebookPage digitarSenha() {
+	public LoginPage digitarSenha(String senha) {
 
-		WebElement senha = driver.findElement(By.id("pass"));
-		senha.sendKeys("w135790");
-
-		WebElement Btnloga = driver.findElement(By.id("loginbutton"));
-		Btnloga.click();
-				
-		return new FacebookPage(driver);
+		driver.findElement(By.id("pass")).sendKeys("qw135790");
+	
+		return this;
 	}
 
 	
-	public FacebookPage clicarSignin() {
-		WebElement Btnloga = driver.findElement(By.id("loginbutton"));
-		Btnloga.click();
-		
-		return new FacebookPage(driver);
-	}
+	
 	
 	public FacebookPage fazerLogin(String username,String password) {
-		
+		digitarUsuario(username);
+		digitarSenha(password);
 		
 		
 		return new FacebookPage(driver);

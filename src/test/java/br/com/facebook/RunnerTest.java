@@ -17,7 +17,7 @@ public class RunnerTest {
 	
 	@Test
 	public void testlogar() {
-		new LoginPage(driver).fazerLogin("testefacecia@gmail.com", "w135790").clicarLogar();
+		new LoginPage(driver).fazerLogin("testefacecia@gmail.com", "qw135790").clicarLogar();
 				
 		
 	}
