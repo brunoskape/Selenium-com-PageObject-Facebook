@@ -1,4 +1,4 @@
-package br.com.facebook;
+package br.com.facebook.pages;
 
 import static org.junit.Assert.assertTrue;
 
@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import PageObject.automacao.SecretPage;
+
 
 public class LoginPage extends BasePage {
 
@@ -17,7 +17,7 @@ public class LoginPage extends BasePage {
 	
 	
 	public LoginPage digitarUsuario(String username) {
-	    driver.findElement(By.id("email")).sendKeys("testefacecia@gmail.com");
+	    driver.findElement(By.id("email")).sendKeys(username);
 	   
 	    return this;  
 		}
@@ -26,7 +26,7 @@ public class LoginPage extends BasePage {
 	
 	public LoginPage digitarSenha(String senha) {
 
-		driver.findElement(By.id("pass")).sendKeys("qw135790");
+		driver.findElement(By.id("pass")).sendKeys(senha);
 	
 		return this;
 	}
