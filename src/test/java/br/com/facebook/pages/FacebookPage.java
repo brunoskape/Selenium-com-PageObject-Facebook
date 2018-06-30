@@ -8,6 +8,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.ClickAction;
+
+import com.google.common.collect.ImmutableBiMap.Builder;
 
 public class FacebookPage extends BasePage{
 
@@ -24,18 +27,18 @@ public class FacebookPage extends BasePage{
 		return this;
 }
 
-public FacebookPage pesquisar() throws InterruptedException {
+	public FacebookPage acessarPaginaInicial() throws InterruptedException {
 
 	   Thread.sleep(3000);
 	   Actions action = new Actions(driver);
 	   action.sendKeys(Keys.ESCAPE).build().perform();
-		WebElement wb = driver.findElement(By.xpath("//div[@class=\"_li\"]//a[@class='_19eb']"));
-		wb.click();
+	   WebElement campoPesquisa = driver.findElement(By.xpath("//div[@class=\"_li\"]//a[@class='_19eb']"));
+	   campoPesquisa.click();
 		
-		return this;
+	   return this;
 }
 		
-		public FacebookPage abreCriarPublicacao() throws InterruptedException {		
+	public FacebookPage abreCriarPublicacao() throws InterruptedException {		
 	
 		Thread.sleep(3000);
 		WebElement envitest = driver.findElement(By.xpath(".//*[text()[contains(.,\"Criar publicação\")]]"));
@@ -44,7 +47,38 @@ public FacebookPage pesquisar() throws InterruptedException {
 		
 		return this;
 }
-		public FacebookPage inserirPublicacao() throws InterruptedException {	
+		
+	public FacebookPage pesquisar() throws InterruptedException {	
+		driver.findElement(By.className("_1frb")).sendKeys("Bruno Rodrigues");
+		Thread.sleep(500);
+		driver.findElement(By.className("_1frb")).sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		
+		return this;
+		
+		}
+	
+	public FacebookPage entrarNoPerfilDeOutro() throws InterruptedException {	
+		
+		Actions actions2 = new Actions(driver);
+		Thread.sleep(3000);
+				
+		actions2.click(driver.findElement(By.xpath("//*[@id=\'xt_uniq_3\']/div/div[1]/a"))).build().perform();
+		WebElement clickPerfil = driver.findElement(By.linkText("Bruno Rodrigues"));
+		clickPerfil.click();
+	
+		String nome = clickPerfil.getText();
+	
+		assertTrue(nome.contains ("Bruno"));
+	
+
+		
+		return this;
+		
+		}
+	
+		
+	public FacebookPage inserirPublicacao() throws InterruptedException {	
 			
 		Actions actions1 = new Actions(driver);
 		actions1.moveToElement (driver.findElement(By.xpath("//div[@class=\'_5rpb\']/div[1]/div")));
@@ -55,30 +89,8 @@ public FacebookPage pesquisar() throws InterruptedException {
 		WebElement publicar = driver.findElement(By.xpath("//div[@class='_45wg _69yt']"));
 		publicar.click();
 		
-		
-		
-			
-	/*	driver.findElement(By.className("_1frb")).sendKeys("Bruno Rodrigues");
-		Thread.sleep(500);
-		driver.findElement(By.className("_1frb")).sendKeys(Keys.ENTER);
-		Thread.sleep(3000);
-		
-
-		
-		
-		WebElement test = driver.findElement(By.xpath("//div[@class='_2yev']//a[contains(@href,'bbrunor')]"));
-		test.click();
-		*/
-				
-		//driver.findElement(By.xpath("//*[contains(@href,'mariianeprado')]")).click();
-
-	//	String option = "esporte interativo";
-		//String locator = "//ul[@id='facebar_typeahead_view_list']" + "/li[contains(normalize-space(.), '" + option
-				//+ "')]";
-
-		//driver.findElement(By.xpath(locator)).click();
-
-		
+		String textoPublicacao = driver.findElement(By.xpath("//*[text()='Teste Automatizado']")).getText();
+		assertTrue(textoPublicacao.contains("Teste Automatizado"));
 		return this;
 		
 	}
