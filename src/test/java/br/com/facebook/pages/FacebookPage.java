@@ -78,7 +78,7 @@ public class FacebookPage extends BasePage{
 		}
 	
 		
-	public FacebookPage inserirPublicacao() throws InterruptedException {	
+	public FacebookPage inserirPublicacaoProprioPerfil() throws InterruptedException {	
 			
 		Actions actions1 = new Actions(driver);
 		actions1.moveToElement (driver.findElement(By.xpath("//div[@class=\'_5rpb\']/div[1]/div")));
@@ -94,6 +94,32 @@ public class FacebookPage extends BasePage{
 		return this;
 		
 	}
-			
+		
+	public FacebookPage inserirPublicacaoOutroPerfil() throws InterruptedException {	
+		
+		inserirTextoPublicacao();
+		
+		WebElement publicar = driver.findElement(By.xpath("//*[contains(@class,'_1mf7 _4jy0 _4jy3 _4jy1 _51sy selected _42ft')]"));
+		publicar.click();
+		
+		String textoPublicacao = driver.findElement(By.xpath("//*[text()='Teste Automatizado']")).getText();
+		assertTrue(textoPublicacao.contains("Teste Automatizado"));
+		return this;
+		
+	}
+	
+	public FacebookPage inserirTextoPublicacao() throws InterruptedException {	
+		
+		Actions actions1 = new Actions(driver);
+		actions1.moveToElement (driver.findElement(By.xpath("//div[@class=\'_5rpb\']/div[1]/div")));
+		actions1.click();
+		actions1.sendKeys("Teste Automatizado");
+		actions1.build().perform();
+		
+		return this;
+		
+	}
+	
+	
 		
 }
