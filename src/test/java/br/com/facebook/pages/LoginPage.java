@@ -34,11 +34,22 @@ public class LoginPage extends BasePage {
 	
 	
 	
-	public FacebookPage fazerLogin(String username,String password) {
+	public void fazerLogin(String username,String password) {
 		digitarUsuario(username);
 		digitarSenha(password);
 		
 		
-		return new FacebookPage(driver);
+		
 	}
+	
+	
+
+	public FacebookPage clicarLogar() {
+	    driver.findElement(By.id("loginbutton")).click();
+	    String nome = driver.findElement(By.xpath("//*[@id=\'u_0_a\']/div[1]/div[1]/div/a/span/span")).getText();
+	    assertTrue(nome.contains ("Bruno"));
+		return new FacebookPage(driver);
+}
+	
+	
 }

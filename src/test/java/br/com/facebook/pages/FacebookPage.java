@@ -20,12 +20,6 @@ public class FacebookPage extends BasePage{
 	}
 	
 
-	public FacebookPage clicarLogar() {
-	    driver.findElement(By.id("loginbutton")).click();
-	    String nome = driver.findElement(By.xpath("//*[@id=\'u_0_a\']/div[1]/div[1]/div/a/span/span")).getText();
-	    assertTrue(nome.contains ("Bruno"));
-		return this;
-}
 
 	public FacebookPage acessarPaginaInicial() throws InterruptedException {
 
@@ -118,6 +112,17 @@ public class FacebookPage extends BasePage{
 		
 		return this;
 		
+	}
+	
+	
+	public FacebookPage enviarMensagemChat() throws InterruptedException{
+		
+		Actions actions2 = new Actions(driver);
+		actions2.moveToElement(driver.findElement(By.xpath("//div[@class='uiToggle _50-v fbNub _rz3 _ur5']/a")));
+		actions2.click();
+		///a
+		
+		return this;
 	}
 	
 	
