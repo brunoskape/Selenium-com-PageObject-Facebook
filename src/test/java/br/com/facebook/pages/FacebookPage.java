@@ -65,7 +65,6 @@ public class FacebookPage extends BasePage{
 	
 		assertTrue(nome.contains ("Bruno"));
 	
-
 		
 		return this;
 		
@@ -125,5 +124,5 @@ public class FacebookPage extends BasePage{
 		return this;
 	}
 	
-			
+		
 }
