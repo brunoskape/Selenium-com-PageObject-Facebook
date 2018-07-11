@@ -31,15 +31,13 @@ public class LoginPage extends BasePage {
 		return this;
 	}
 
-	
-	
+		
 	
 	public void fazerLogin(String username,String password) {
 		digitarUsuario(username);
 		digitarSenha(password);
 		
-		
-		
+				
 	}
 	
 	
