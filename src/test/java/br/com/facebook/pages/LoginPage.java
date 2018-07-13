@@ -16,19 +16,19 @@ public class LoginPage extends BasePage {
 	}
 	
 	
-	public LoginPage digitarUsuario(String username) {
+	public void digitarUsuario(String username) {
 	    driver.findElement(By.id("email")).sendKeys(username);
 	   
-	    return this;  
+	      
 		}
 	
 	
 	
-	public LoginPage digitarSenha(String senha) {
+	public void digitarSenha(String senha) {
 
 		driver.findElement(By.id("pass")).sendKeys(senha);
 	
-		return this;
+		
 	}
 
 		

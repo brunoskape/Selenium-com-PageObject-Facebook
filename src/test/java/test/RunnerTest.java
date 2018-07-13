@@ -50,11 +50,11 @@ public class RunnerTest {
 		
     }
 	
-/*	
- * implementar o metodo abaixoo
- * @Test 
+ 
+  @Test 
 	public void mensagemChat() throws InterruptedException {
-		
+		new FacebookPage(driver).enviarMensagemChat();
+	  
 	}
-*/
+
 }
