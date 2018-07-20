@@ -57,7 +57,7 @@ public class FacebookPage extends BasePage{
 		
 		}
 	
-	public FacebookPage entrarNoPerfilDeOutro() throws InterruptedException {	
+	public void entrarNoPerfilDeOutro() throws InterruptedException {	
 		
 		//Actions actions2 = new Actions(driver);
 	
@@ -70,8 +70,7 @@ public class FacebookPage extends BasePage{
 	
 		assertTrue(nome.contains ("Bruno"));
 	
-		return this;
-		
+				
 		}
 	
 		
@@ -119,7 +118,7 @@ public class FacebookPage extends BasePage{
 		
 		
 		action.sendKeys(Keys.ESCAPE).build().perform();
-		action.moveToElement(driver.findElement(By.xpath("//*[@id=\'fbDockChatBuddylistNub\']/a/span[2]")));
+		action.moveToElement(driver.findElement(By.xpath("//div[@id=\'fbDockChatBuddylistNub\']/a")));
 		
 		//action.moveToElement(driver.findElement(By.xpath("//div[@class='uiToggle _50-v fbNub _rz3 _ur5']/a")));
 		Thread.sleep(3000);
